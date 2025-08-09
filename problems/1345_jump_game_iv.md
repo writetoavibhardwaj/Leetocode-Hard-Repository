@@ -10,8 +10,19 @@ Problem broken down:
 
 
 Instincts/Initial Thoughts:
-1) Not recursion or Dynamic Programming:No  link between consecutive index values
-2) Not Backtracking friendly :Else TLE exceeded for 1 <= arr.length <= 5 * 104
-3) No sliding window: Problem is based on specific jumps not sub arrays and again teleports need complete traversal
-4) Looping is extremely problematic:Teleports are impossible to predict and break Sequence
-5) 
+1) recursion / DP: No clear state link between consecutive indices.
+2) Not backtracking: Would exceed time limits for 1 <= arr.length <= 5*10^4.
+3) Not sliding window: Movement is by discrete jumps, not contiguous subarrays; teleports require full traversal.
+4) Looping issues: Teleports are unpredictable and break sequential patterns.
+
+Core Technique
+5) BFS favoured over DFS: Stepwise nature of problem.Clear start and endpoint.Each index is a node. So a main chain(index based) + sidechains (teleport).
+6) Multiple paths to be tried out 1 step at a time so the first time we reach a node is the best way to reach it (Standard BFS)
+7) Endless looping(to and fro teleports) and revisiting the same index through multiple means must not be allowed.
+8) Count should not be global but separately updated per path
+
+Data Structures to be used:
+9) A dictionary: Key as node with additional destinations list as a value pair 
+10) A queue: To ensure i+1,i-1,teleports at an index are done before further cases 
+11) a tuple or list to skip visited nodes
+
