@@ -1,7 +1,7 @@
 The Question:
 Given n non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
 One of the given test cases:
-
+ 
 Input: height = [0,1,0,2,1,0,1,3,2,1,2,1]
 Output: 6
 
@@ -16,6 +16,8 @@ I went for the former approach though the two pointer is more intuitive
 Key difference between stack and two pointer: Two pointer has a "fixed" left wall while 
 Another interesting thing is that the stack method pops a block before ALL the available/valid area above it is filled.That is possible when the block preceeding the left wall is higher than the current wall.
 Hence the need for width= i-left-1 (-1 since the walls themselves do not contribute to water at thant moment) and ans= ans+width*bounded.
+
+Space and Time Complexity as per LC is O(N)
 
 
 #include <vector>
