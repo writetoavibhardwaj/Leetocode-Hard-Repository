@@ -7,19 +7,27 @@ First thoughts:
 
 
 The Method:
-1) Divide and conquer :Pair linked lists. Merge them 2 at a time . Next  merge these lists pairwise.
+1st method Divide and conquer :Pair linked lists. Merge them 2 at a time . Next  merge these lists pairwise.
+So we pair k lists first then k/2 and k/4 and so on so for large inputs TLE= logk.
+The code for pairing them is simple itself.
+for two linked lists 
+Move pointer forward of a list and copare it to current value of other linked list 
+Pop whoever is the smallest(say l1) and push the pointer of l1 forward.
 
-Say list1 = a0->a1->(?...) length l1
+2nd: heap based approach Say list1 = a0->a1->(?...) length l1
     list2 = b0->b1->(?...) length l2
 and so on 
 (?) since it requires step by step traversal which we have not done yet 
 So we push them into heap and then push the cursor 1 step ahead
 
-
 So we now have
 heap=[a0,b0...]
 list1 = a1->a2->(?...) length l1-1
 list2 = b1->b2->(?...) length l2-1
+
+So heap now pops the minimum  and we now push next element of corresponding linked list into it 
+
+We keep doing this until the heap is empty 
 
 
 
