@@ -12,11 +12,6 @@ Median is position not value based.So function must reflect that.
 
 
 Mental Model/Rough work:
-THink of 2 pointers as sliding walls 
-Random Situation
- arr1 ....a4  P1 a5 ... a10 P2 a11...
-arr2    ....b8 P3 b9.....b15 P4 b16...
-So we have to sync P1 + P3 as a wall and similarly P2 and P4 as another wall (ignore the numbering just denotes successive elements)
 
 For median 
 ......a10 |        | a20....
