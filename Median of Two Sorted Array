@@ -19,5 +19,23 @@ arr2    ....b8 P3 b9.....b15 P4 b16...
 So we have to sync P1 + P3 as a wall and similarly P2 and P4 as another wall (ignore the numbering just denotes successive elements)
 
 For median 
-......a10 | MEDIAN | a20
- .... b5  |        | b40       
+......a10 |        | a20....
+            MEDIAN            
+ .... b5  |        | b40 ....     
+Now median satisfies 
+MEDIAN>a10 
+MEDIAN>b5 
+MEDIAN<a20
+MEDIAN<b40
+
+Now median satisfies 4 necessary conditions(per pointer) simultaneously 
+
+Now until median is found 
+ arr1 ....a4  P1 a5 ... a10 P2 a11...
+arr2    ....b8 P3 b9.....b15 P4 b16..
+we have to constantly shrink the walls until they converge 
+
+a4<b9 and a5>b8 (P1+P3 act like a wall but two pointers per wall needed for separate arrays)
+Similarly for right wall a10<b16 and a11>b15
+
+
