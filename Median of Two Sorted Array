@@ -1,0 +1,20 @@
+Problem Statement
+Given two sorted arrays nums1 and nums2 of size m and n respectively, return the median of the two sorted arrays.
+
+The overall run time complexity should be O(log (m+n)).
+
+First thoughts:
+Potentially Multi pointer Problem Two pointers at the very least
+Altering or merging arrays exceeds TLE
+Direct length based computations is impractical as the overlap between the arrays is not known beforehand
+Log(m+n) might indicate some dynamic window or atleaste successive reduction of search space by a factor. 
+Median is position not value based.So function must reflect that.
+
+
+Mental Model/Rough work:
+THink of 2 pointers as sliding walls 
+Random Situation
+ arr1 ....a4  P1 a5 ... a10 P2 a11...
+arr2    ....b8 P3 b9.....b15 P4 b16...
+So we have to sync P1 + P3 as a wall and similarly P2 and P4 as another wall
+         
