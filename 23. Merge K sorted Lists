@@ -29,6 +29,34 @@ So heap now pops the minimum  and we now push next element of corresponding link
 
 We keep doing this until the heap is empty 
 
+So code for the Heap Method:
+
+
+#include <queue>
+#include <vector>
+
+struct Cmp {
+    bool operator()(ListNode* a, ListNode* b) const {
+        return a->val > b->val; // min-heap
+    }
+};
+
+ListNode* mergeKLists_heap(std::vector<ListNode*>& lists) {
+    std::priority_queue<ListNode*, std::vector<ListNode*>, Cmp> pq;
+    for (auto* h : lists) if (h) pq.push(h);
+
+    ListNode dummy; 
+    ListNode* tail = &dummy;
+
+    while (!pq.empty()) {
+        ListNode* node = pq.top(); pq.pop();
+        tail->next = node; 
+        tail = node;        // append smallest
+        if (node->next) pq.push(node->next); // advance that list’s cursor
+    }
+    return dummy.next;
+}
+
 
 
 
