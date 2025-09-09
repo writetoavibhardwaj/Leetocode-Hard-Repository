@@ -33,4 +33,6 @@ we have to constantly shrink the walls until they converge
 a4<b9 and a5>b8 (P1+P3 act like a wall but two pointers per wall needed for separate arrays)
 Similarly for right wall a10<b16 and a11>b15
 
-
+For Edge case of pointer being on either extreme in either array:
+Take the left side of the pointer at the start as -infinity 
+And similarly +infinity for the pointer on right end 
