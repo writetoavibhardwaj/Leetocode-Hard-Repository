@@ -20,6 +20,3 @@ To demonstrate not just the ability to solve hard algorithmic problems, but to *
 
 ---
 
-## Problems Solved
-Problem number     Problem Name    Question Link    Solution Link
-1345               Jumpgame 4 
