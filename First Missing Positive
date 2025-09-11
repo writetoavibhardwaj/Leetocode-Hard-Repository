@@ -1,0 +1,21 @@
+Problem Statement
+Given an unsorted integer array nums. Return the smallest positive integer that is not present in nums.
+You must implement an algorithm that runs in O(n) time and uses O(1) auxiliary space.
+
+Sample case 
+Input: nums = [3,4,-1,1]
+Output: 2
+Explanation: 1 is in the array but 2 is missing.
+
+First thoughts:
+1)Array needs to be sorted through swapping as naive traversals not possible.
+2)Then traverse through array to get the minimum number.
+3)Any num k belongs at index k-1
+
+
+Key Idea:
+1)Traverse in array
+2)Each element is placed in its correct slot 
+3)The other element in placed in the correct element's original slot.
+4)Elements keep getting kicked around until placed in wrong and residual(for non positive numbers) slots.
+5)The first residual slot +1 is the answer else its n+1.
