@@ -1,1 +1,22 @@
+Problem Statement:
+Given two strings s and t, return the number of distinct subsequences of s which equals t.
+
+Example 1:
+
+Input: s = "rabbbit", t = "rabbit"
+Output: 3
+Explanation:
+As shown below, there are 3 ways you can generate "rabbit" from s.
+(rabb)b(it)
+(rab)b(bit)
+(ra)b(bbit)
+
+First Thoughts:
+1)Like Bursting Balloons this is a DP + recursion in disguise.
+2)Sliding window + naive two pointers type ideas fail
+3)A correct sub unit can combine with multiple letters down the line for correct solution hence the need for recursion.
+4)A Matrix can be created by i,j where i and j are indices of strings s and t.
+
+
+
 
