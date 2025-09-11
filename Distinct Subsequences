@@ -18,5 +18,15 @@ First Thoughts:
 4)A Matrix can be created by i,j where i and j are indices of strings s and t.
 
 
+Key Idea/Moethod:
+1)dp[i][j] = number of ways t[j:] appears as a subsequence of s[i:]
+2)base case1: As an empty t with size n matches all i, dp[i][n] = 1 for all i
+3)Base case2: Non-empty t can not match empty s, dp[m][j] = 0 for all j < n.
+4) If s[i] == t[j]: we either use this s[i] or skip it
+      dp[i][j] = dp[i+1][j+1] + dp[i+1][j]
+      else must skip s[i] and we have dp[i][j] = dp[i+1][j]
+5)We  never need to use break as 
+a) We need to scan whole s (gives rise to base case2)
+b) We can skip letters.No condition other than s fully scanned that can override a partially and potentially correct sequence.
 
 
