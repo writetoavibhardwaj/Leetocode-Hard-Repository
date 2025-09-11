@@ -28,5 +28,28 @@ Key Idea/Moethod:
 5)We  never need to use break as 
 a) We need to scan whole s (gives rise to base case2)
 b) We can skip letters.No condition other than s fully scanned that can override a partially and potentially correct sequence.
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    int numDistinct(string s, string t) {
+        int m = (int)s.size(), n = (int)t.size();
+        vector<vector<long long>> dp(m + 1, vector<long long>(n + 1, 0));
+
+        for (int i = 0; i <= m; ++i) dp[i][n] = 1;
+
+        for (int i = m - 1; i >= 0; --i) {
+            for (int j = n - 1; j >= 0; --j) {
+                if (s[i] == t[j]) {
+                    dp[i][j] = dp[i + 1][j + 1] + dp[i + 1][j];
+                } else {
+                    dp[i][j] = dp[i + 1][j];
+                }
+            }
+        }
+        return (int)dp[0][0];
+    }
+};
 
 
