@@ -1,1 +1,15 @@
+Problem Statement 
+Given two strings s and t of lengths m and n respectively, return the minimum window substring of s such that every character in t (including duplicates) is included in the window.
+If there is no such substring, return the empty string "".
+The testcases will be generated such that the answer is unique.
 
+Example 1:
+Input: s = "ADOBECODEBANC", t = "ABC"
+Output: "BANC"
+
+First Thoughts :
+1)Opposite of DP problems done previously.
+2)Shortest window dictates two pointer sliding window.
+3)Keep track of current char count vs char count needed.
+4)left pointer moves forward as long as above constraint is maintained.
+5)Right pointer keeps moving forward.
