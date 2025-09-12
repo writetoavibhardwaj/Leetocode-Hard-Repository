@@ -13,3 +13,66 @@ Input: s = "aa", p = "a"
 Output: false
 Explanation: "a" does not match the entire string "aa".
 
+First Thoughts: 
+1)? can easily be treated as pass per element
+2)In normal scenarios keep matching element and shifting pointers one by one 
+3)* is tricky.It can substitute any number of consecutive letters in pattern matching 
+4)We can not know beforehand the number of elements a * takes care of 
+5)Some backtracking might be needed as future mismatches force re eval of extent of *
+
+
+Key Idea:
+1)Keep pointers i (s), j (p).
+
+On * record star index = j and match = i, advance j (try * as empty ie ignore it initially).
+On later mismatch,we do not need to rescan wildly.
+set j = star + 1 
+
+set i = match + 1 (let star eat one more character)
+
+update match = i.
+
+Code in C++
+
+#include <bits/stdc++.h>
+using namespace std;
+
+class Solution {
+public:
+    bool isMatch(string s, string p) {
+        int i = 0, j = 0;              
+        int star = -1;                 
+        int match = 0;                
+
+        while (i < (int)s.size()) {
+
+            if (j < (int)p.size() && (p[j] == s[i] || p[j] == '?')) {
+                ++i;
+                ++j;
+            }
+
+            else if (j < (int)p.size() && p[j] == '*') {
+                star = j;              
+                match = i;             
+                ++j;                   
+            }
+
+            else if (star != -1) {
+                j = star + 1;         
+                ++match;              
+                i = match;             
+            }
+            else {
+                return false;
+            }
+        }
+
+        while (j < (int)p.size() && p[j] == '*') ++j;
+
+        return j == (int)p.size();
+    }
+};
+
+
+
+
