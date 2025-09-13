@@ -1,0 +1,26 @@
+Accidentally Pasted it in Issues section.Repasting it here.
+The n-queens puzzle is the problem of placing n queens on an n x n chessboard such that no two queens attack each other.
+
+Given an integer n, return all distinct solutions to the n-queens puzzle. You may return the answer in any order.
+
+Each solution contains a distinct board configuration of the n-queens' placement, where 'Q' and '.' both indicate a queen and an empty space, respectively.
+
+-First Thoughts
+
+-Backtracking heavy
+
+have to compute ALL correct scenarios
+-Correct combinations can not be pre known until last queen finds correct
+-Size of board is small 1 <= n <= 9 so no TLE issues
+
+Row/column/diagonal relationship
+
+Row - column equivalent ish
+
+traverse on basis of columns
+-A queen moves diagonally as well as along straight lines
+
+Once square occupied corresponding straight lines and diagonals (2 diagonals) are not free
+
+Constraints reset for next setup
+-if correct configuration mention the setup else move on
